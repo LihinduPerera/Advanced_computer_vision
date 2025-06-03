@@ -56,9 +56,10 @@ def main():
         success, img = cap.read()
         img = detector.findPose(img)
         lmlist = detector.findPosition(img)
-        print(lmlist[14])
-
-        cv.circle(img, (lmlist[14][1], lmlist[14][2]), 20, (0, 0, 255), cv.FILLED) #track for a one id
+        
+        if len(lmlist) != 0:
+            print(lmlist[14])
+            cv.circle(img, (lmlist[14][1], lmlist[14][2]), 20, (0, 0, 255), cv.FILLED) #track for a one id
 
         currentTime = time.time()
         fps = 1/(currentTime - previousTime)
