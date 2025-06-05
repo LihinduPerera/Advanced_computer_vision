@@ -3,9 +3,12 @@ import time
 import PoseEstimationModule as pm
 
 
-cap = cv.VideoCapture("videos/3.mp4")
+cap = cv.VideoCapture("videos/PD1.mp4")
+# cap = cv.VideoCapture(0)
 previousTime = 0
+
 detector = pm.poseDetector()
+
 while True:
     success, img = cap.read()
     img = detector.findPose(img)

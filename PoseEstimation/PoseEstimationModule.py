@@ -32,8 +32,8 @@ class poseDetector():
         if self.results.pose_landmarks:
             if draw:
                 self.mpDraw.draw_landmarks(img, self.results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
-
-            return img
+        
+        return img
     
     def findPosition(self, img , draw=True):
         lmList = []
@@ -49,7 +49,7 @@ class poseDetector():
 
 
 def main():
-    cap = cv.VideoCapture("videos/3.mp4")
+    cap = cv.VideoCapture("videos/PD1.mp4")
     previousTime = 0
     detector = poseDetector()
     while True:
@@ -69,6 +69,52 @@ def main():
         cv.imshow("Image", img)
 
         cv.waitKey(1)
+
+# def main():
+#     cap = cv.VideoCapture("videos/PD1.mp4")
+#     previousTime = 0
+#     detector = poseDetector()
+
+#     while True:
+#         success, img = cap.read()
+
+#         # ✅ Make sure the frame is valid before continuing
+#         if not success or img is None or img.size == 0:
+#             print("Empty or invalid frame. Exiting loop.")
+#             break
+
+#         img = detector.findPose(img)
+#         if img is None or img.size == 0:
+#             print("Pose detection returned an invalid image.")
+#             break
+
+#         lmlist = detector.findPosition(img)
+
+#         if len(lmlist) != 0:
+#             try:
+#                 # Protect against index errors if the landmark isn't available
+#                 cv.circle(img, (lmlist[14][1], lmlist[14][2]), 20, (0, 0, 255), cv.FILLED)
+#             except IndexError:
+#                 print("Landmark 14 not found in current frame.")
+
+#         currentTime = time.time()
+#         fps = 1 / (currentTime - previousTime)
+#         previousTime = currentTime
+
+#         if img is not None and img.size > 0:
+#             cv.putText(img, str(int(fps)), (70, 50), cv.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
+#             cv.imshow("Image", img)
+#         else:
+#             print("Image is empty before displaying.")
+#             break
+
+#         if cv.waitKey(1) & 0xFF == ord('q'):
+#             break
+
+#     cap.release()
+#     cv.destroyAllWindows()
+
+
 
 
 if __name__ == "__main__":

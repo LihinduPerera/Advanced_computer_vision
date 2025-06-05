@@ -6,7 +6,7 @@ mpDraw = mp.solutions.drawing_utils
 mpPose = mp.solutions.pose
 pose = mpPose.Pose()
 
-cap = cv.VideoCapture("videos/3.mp4")
+cap = cv.VideoCapture("videos/PD1.mp4")
 previousTime = 0
 
 while True:
