@@ -19,7 +19,7 @@ class handDetector():
         self.mpDraw = mp.solutions.drawing_utils
 
     def findHands(self, img, draw=True):
-        img = cv.flip(img, 1) # Flip the image to the correct direction
+        # img = cv.flip(img, 1) # Flip the image to the correct direction
         imgRGB = cv.cvtColor(img, cv.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)
         # print(results.multi_hand_landmarks)

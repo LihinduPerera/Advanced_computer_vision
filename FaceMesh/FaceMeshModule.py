@@ -35,7 +35,7 @@ class FaceMeshDetector():
                 for id, lm in enumerate(faceLms.landmark):
                     h, w, c = img.shape
                     x,y = int(lm.x * w), int(lm.y * h)
-                    cv.putText(img, str(id), (x,y) , cv.FONT_HERSHEY_PLAIN, 1, (0,255,0), 1)
+                    # cv.putText(img, str(id), (x,y) , cv.FONT_HERSHEY_PLAIN, 1, (0,255,0), 1) #Face IDs
                     # print(id,x, y)
                     face.append([id, x, y])
                 faces.append(face)
