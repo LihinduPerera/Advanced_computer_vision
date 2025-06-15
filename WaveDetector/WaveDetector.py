@@ -63,7 +63,6 @@ def main():
 
             if waveDetector.detect_wave():
                 print("Hi 👋")
-                cv.putText(img, "Hi 👋", (50, 100), cv.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 4)
 
         cv.imshow("Image", img)
         if cv.waitKey(1) & 0xFF == ord('q'):
